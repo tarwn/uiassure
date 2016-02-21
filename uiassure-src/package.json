@@ -1,0 +1,9 @@
+{
+    "name": "uiassure",
+    "version": "0.0.1",
+    "description": "UI testing platform that assures everything is still ok, through continuous monitoring or one time execution as part of build and dpeloyment automation.",
+    "author": "Eli Weinstock-Herman <contact@tiernok.com>",
+    "dependencies": {
+	"selenium-webdriver": "2.52.0"
+    }
+}
