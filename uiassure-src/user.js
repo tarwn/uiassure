@@ -65,25 +65,25 @@ function User(driver, browser, pages, testStatus){
 				return;
 			}
 
-			if(pages[pageName].matcher == undefined){
-				testStatus.recordFail("Page '" + pageName + "' does not have a 'matcher' defined");
+			if(pages[pageName].pageIdentifier == undefined){
+				testStatus.recordFail("Page '" + pageName + "' does not have a 'pageIdentifier' defined");
 				return;
 			}
 
-			var matcher = pages[pageName].matcher;
+			var pageIdentifier = pages[pageName].pageIdentifier;
 
 			return promise.fulfilled().then(function(){
-				if(matcher.type == 'url'){
+				if(pageIdentifier.type == 'url'){
 					return driver.wait(driver.getCurrentUrl() == pages[page.name].url, maximumWaitTime, "URL is not '" + pages[page.name].url + "'");
 				}
-				else if(matcher.type == 'title'){
-					return driver.wait(until.titleIs(matcher.match), maximumWaitTime, "Title is not '" + matcher.match + "'");
+				else if(pageIdentifier.type == 'title'){
+					return driver.wait(until.titleIs(pageIdentifier.match), maximumWaitTime, "Title is not '" + pageIdentifier.match + "'");
 				}
-				else if(matcher.type == 'element'){
-					return driver.wait(until.elementLocated(matcher.match), maximumWaitTime, "Could not find '" + matcher.match + "'");
+				else if(pageIdentifier.type == 'element'){
+					return driver.wait(until.elementLocated(pageIdentifier.match), maximumWaitTime, "Could not find '" + pageIdentifier.match + "'");
 				}
 				else{
-					testStatus.recordFail("Page '" + pageName + "' has an unrecognized 'matcher' of type '" + matcher.type + "'");
+					testStatus.recordFail("Page '" + pageName + "' has an unrecognized 'pageIdentifier' of type '" + pageIdentifier.type + "'");
 					return;
 				}
 			})

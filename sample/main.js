@@ -3,7 +3,7 @@ var By = require("../uiassure-src/uiassure").By;
 
 var loginPage = {
 	url: "http://lessthandot.com/login.php",
-	matcher: {
+	pageIdentifier: {
 		type: 'title',
 		match: 'Less Than Dot - Launchpad - Less Than Dot - Login'
 	},
@@ -23,7 +23,7 @@ var loginPage = {
 
 var homePage = {
 	url: "http://lessthandot.com",
-	matcher: {
+	pageIdentifier: {
 		type: 'url'
 	},
 };
@@ -37,7 +37,7 @@ var anyPage = {
 		type: 'isVisible',
 		selector: By.xpath('//*[@id="snav"]/a[.="Login"]')
 	},
-	loginWelcomeText: {
+	loginWelcomeText: { 
 		type: 'label',
 		selector: '#snav'
 	},

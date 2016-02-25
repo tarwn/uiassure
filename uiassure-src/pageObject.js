@@ -40,8 +40,8 @@ function PageObject(config){
 		if(key == "url"){
 			self.url = config.url;
 		}
-		else if(key == "matcher"){
-			self.matcher = config.matcher;
+		else if(key == "pageIdentifier"){
+			self.pageIdentifier = config.pageIdentifier;
 		}
 		else{
 			self[key] = generateAccessor(config[key]);
